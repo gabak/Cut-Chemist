@@ -1,0 +1,51 @@
+ <ion-view view-title="{{categorieVideos}}">
+ <ion-content class="body">
+  
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refresh()">
+  </ion-refresher>
+  
+    
+
+        <div ng-repeat="categoriesVideo in categoriesVideoss">
+          
+         <div class="card" role="listitem">
+          <a href="#/app/detailsVideo/{{ categoriesVideo.id }}" >
+            <div class="row" style="padding-bottom: 0;">
+            <div class="col col-50 imgVideo">
+             <img  alt="img" class="full-image " src="{{ categoriesVideo.snippet.thumbnails.medium.url }}" md-ink-ripple="#bbb"/>
+             <p class="duration">{{categoriesVideo.contentDetails.duration | duration}}</p>
+            </div>
+            <div class="col col-50" style="padding-left:15px;"> 
+            <h5 ng-bind-html="categoriesVideo.snippet.title | limitTo:40" style="padding-top:15px;"></h5>
+            <p>{{categoriesVideo.statistics.viewCount | number}} View</p>
+            </div>
+            </div>
+          </a>
+          </div>
+
+        </div>
+
+
+    <div class="card" ng-if="!categoriesVideoss">
+    <p class="padding"  style="margin-bottom: 2px;">
+     No found  :  {{categorieVideos}}
+    </p>
+    </div>
+
+    <input type="hidden" ng-model="pageToken" ng-value="">
+
+ </ion-content>
+
+ <ion-footer-bar align-title="left" class="bar-assertive" ng-if="categoriesVideoss">
+   <div class="buttons">
+    <button class="button" type="button" ng-click="Prev()" ng-model="pageTokenPrev" ng-value="pageTokenPrev" ng-hide="pageTokenPrev === undefined">Prev</button>
+  </div>
+  <h1 class="title" align-title="center"></h1>
+  <div class="buttons">
+    <button class="button" ng-click="Next()" ng-model="pageTokenNext" ng-value="pageTokenNext" ng-hide="pageTokenNext === undefined">Next</button>
+  </div>
+ </ion-footer-bar>
+
+</ion-view>

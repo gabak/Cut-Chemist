@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+      
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+
+      </ion-nav-buttons>
+
+      <ion-nav-buttons side="right" ng-if="share=='true'">
+      
+        <button  class="button button-icon button-clear ion-android-share">
+        </button>
+
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar align-title="left" class="bar-assertive">
+     <div class="title title-center header-item" >{{contactHome.snippet.title}}</div>
+    </ion-header-bar>
+    <ion-content>
+
+        <ion-item menu-close href="#/app/home" >
+          New Videos
+        </ion-item>
+        
+        <ion-item menu-close href="#/app/mostPopular">
+          Most Popular
+        </ion-item>
+
+        <!--<ion-item menu-close href="#/app/categories" >-->
+          <!--Categories-->
+        <!--</ion-item>-->
+        
+         <ion-item menu-close href="#/app/comments" >
+          Comments
+        </ion-item>
+
+        <ion-item menu-close href="#/app/playlists">
+          Playlists
+        </ion-item>
+
+        <ion-item menu-close href="#/app/contact">
+          About
+        </ion-item>
+        
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+
+
+</ion-side-menus>

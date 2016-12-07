@@ -1,0 +1,32 @@
+<ion-view view-title="Comments">
+  <ion-content>
+          <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refresh()">
+  </ion-refresher>
+            
+            <div ng-repeat="comment in commentts">
+               <div href="#" class="item item-avatar item-icon-right">
+                <img src="{{comment.snippet.topLevelComment.snippet.authorProfileImageUrl}}">
+                <h2>
+                {{comment.snippet.topLevelComment.snippet.authorDisplayName}}
+                </h2>
+                <h5 style="color:#128EEA">{{comment.snippet.topLevelComment.snippet.updatedAt | date}}</h5>
+                <p>
+                  {{comment.snippet.topLevelComment.snippet.textDisplay}}
+                </p>
+
+                <i class="icon ion-thumbsup" ng-if="comment.snippet.topLevelComment.snippet.likeCount!=0" style="font-size:16px;">{{comment.snippet.topLevelComment.snippet.likeCount}}</i>
+
+                
+                <a href="#/app/commentDetails/{{comment.snippet.topLevelComment.id}}" class="button button-small button-assertive" ng-if="comment.snippet.totalReplyCount!=0">
+                Plus
+                </a>
+                </div>
+
+            </div>
+            
+       <input type="hidden" ng-model="pageToken" ng-value="">
+  </ion-content>
+
+</ion-view>

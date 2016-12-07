@@ -1,0 +1,28 @@
+ <ion-view view-title="{{PlayListTitle}}">
+ <ion-content class="body">
+   <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refresh()">
+  </ion-refresher>
+  
+
+     <div ng-repeat="playlist in PlayListss">
+          
+         <div class="card" role="listitem">
+          <a href="#/app/detailsVideo/{{ playlist.id }}" >
+            <div class="row" style="padding-bottom: 0;">
+            <div class="col col-50 imgVideo">
+             <img  alt="img" class="full-image " src="{{ playlist.snippet.thumbnails.medium.url }}" md-ink-ripple="#bbb"/>
+             <p class="duration">{{playlist.contentDetails.duration | duration}}</p>
+            </div>
+            <div class="col col-50" style="padding-left:15px;"> 
+            <h5 ng-bind-html="playlist.snippet.title | limitTo:40" style="padding-top:15px;"></h5>
+            <p>{{playlist.statistics.viewCount | number}} View</p>
+            </div>
+            </div>
+          </a>
+          </div>
+
+    </div>
+ </ion-content>
+</ion-view>

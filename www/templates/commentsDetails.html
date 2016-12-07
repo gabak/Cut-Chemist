@@ -1,0 +1,25 @@
+<ion-view view-title="Comment Details">
+  <ion-content >
+          <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refresh()">
+  </ion-refresher>
+  <div class="list">
+            
+            <div ng-repeat="comment in commentss">
+              <a ui-sref="#" class="item item-avatar item-icon-right" style="background:transparent;;">
+                <img src="{{comment.snippet.authorProfileImageUrl}}">
+                <h2>
+                {{comment.snippet.authorDisplayName}}
+                <h5 style="color:#128EEA">{{comment.snippet.updatedAt | date}}</h5
+                </h2>
+                <p>
+                  {{comment.snippet.textDisplay}}
+                </p>
+                <i class="icon ion-thumbsup" ng-if="comment.snippet.likeCount!=0" style="font-size:16px;"> {{comment.snippet.likeCount}}</i>
+            </a>
+            </div>
+            
+       
+  </ion-content>
+</ion-modal-view>

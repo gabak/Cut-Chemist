@@ -1,0 +1,33 @@
+<ion-view view-title="About">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('{{ contactt.brandingSettings.image.bannerTvHighImageUrl }}');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('{{ contactt.snippet.thumbnails.default.url }}');"></div>
+                <h3 style="margin-bottom: 20px;margin-top: 0px;"><a class="light">{{contactt.snippet.title}}</a></h3>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="#" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> {{contactt.statistics
+.viewCount | number }}
+            </a>
+            <a ui-sref="#" class="tab-item">
+                <i class="icon ion-android-people"></i> {{contactt.statistics
+.subscriberCount | number }}
+            </a>
+            <a ui-sref="#" class="tab-item">
+                <i class="icon ion-ios-videocam"></i> {{ contactt.statistics.videoCount | number }}
+            </a>
+        </div>
+        
+        <div class="content padding double-padding-x">
+            <!--<h4 ng-click="login()">
+              Comments({{contact.statistics.commentCount | number }})
+            </h4>-->
+            <p style="margin-bottom: 5px;font-weight: 600;">Published : {{contactt.snippet.publishedAt | date }}</p>
+            <p style="margin-bottom: 20px;">{{contactt.snippet.localized.description }}</p>
+           
+        </div>
+        
+    </ion-content>
+</ion-view>

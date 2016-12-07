@@ -1,0 +1,29 @@
+ <ion-view view-title="PlayLists">
+ <ion-content class="body">
+
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refresh()">
+  </ion-refresher>
+  <div class="list">
+
+
+  <div class="list card" ng-repeat="playlist in playlists">
+    <a href="#/app/playList/{{ playlist.id }}/{{playlist.snippet.localized.title}}">
+
+    <div class="item item-body" >
+      <img  alt="img" class="full-image" src="{{ playlist.snippet.thumbnails.medium.url }}" /> 
+      <p>{{playlist.snippet.publishedAt | date}}</p>
+ 
+      <h2 ng-bind-html="playlist.snippet.localized.title"></h2>
+      <p ng-bind-html="playlist.snippet.localized.description | limitTo:150"></p>
+      <p>
+      <a href="#" class="subdued">{{playlist.contentDetails.itemCount }} Videos</a>
+      </p>
+
+    </div>
+    </a>
+  </div>
+
+ </ion-content>
+</ion-view>

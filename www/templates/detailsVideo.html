@@ -1,0 +1,66 @@
+ <ion-view view-title="Video">
+  <div class="tabs-striped tabs-top tabs-background-assertive tabs-color-light">
+    <div class="tabs">
+      <a class="tab-item active" href="#">
+        <i class="icon ion-ios-videocam"></i>
+      </a>
+      <a class="tab-item" href="#" ng-click="modal.show()">
+        <i class="icon ion-more"></i>
+      </a>
+      <a class="tab-item" href="#/app/commentsVideos/{{detailsVideo.id }}">
+        <i class="icon ion-chatbubbles"></i>
+      </a>
+    </div>
+  </div>
+
+ <ion-content style="padding-top:50px;">
+     
+     <div class="embed-responsive embed-responsive-16by9">
+      <youtube-video class="embed-responsive-item" video-id="detailsVideo.id" player="bestPlayer"></youtube-video>
+    </div>
+    <div class="card padding" style="padding-bottom: 0px;padding-top: 6px;">
+      <div class="row border">
+       <div class="col col-75">
+	      <h4 ng-bind-html="detailsVideo.snippet.title" style="margin-bottom: 0px;margin-top: 5px;" ng-modal="title"></h4>
+       </div>
+       <div class="col col-25" >
+        <h5 align="right"><i class="ion-eye"> {{detailsVideo.statistics.viewCount | number }}</i></h5>
+       </div>
+      </div>
+
+        <div class="row videoDetails" style="padding-top: 10px;">
+
+
+          
+          <p style="margin-right: 20px;"><i class="icon ion-chatboxes"></i> {{detailsVideo.statistics.commentCount | number }}</p>
+          <p style="margin-right: 20px;"><i class="icon ion-thumbsup"></i> {{detailsVideo.statistics.likeCount | number }}</p>
+          <p><i class="icon ion-thumbsdown"></i> {{detailsVideo.statistics.dislikeCount | number }}</p>
+
+
+
+        </div>
+        
+
+     </div>
+     <div class="card padding" style="position:relative;">
+        <div class="row">
+        <div class="col">
+        <p style="margin-top: 5px;">{{detailsVideo.snippet.publishedAt | date}}</p>
+        <p ng-bind-html="detailsVideo.snippet.description | limitTo:150"></p>
+        </div>
+        </div>
+     </div>
+
+     <script id="templates/descriptionVideo.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-assertive">
+          <h1 class="title">Description Video</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <p ng-bind-html="detailsVideo.snippet.description"></p>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+ </ion-content>
+</ion-view>

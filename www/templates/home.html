@@ -1,0 +1,37 @@
+<ion-view view-title="News Videos">
+    <ion-content>
+         
+
+       <a href="#/app/detailsVideo/{{ videosFirst.id }}">
+       <img  alt="img" class="full-image " src="{{ videosFirst.snippet.thumbnails.medium.url }}" />
+       </a>
+        
+      
+     
+
+
+        <div ng-repeat="video in videos">
+          
+         <div class="card" role="listitem">
+          <a href="#/app/detailsVideo/{{ video.id }}" >
+            <div class="row" style="padding-bottom: 0;">
+            <div class="col col-50 imgVideo">
+             <img  alt="img" class="full-image " src="{{video.snippet.thumbnails.medium.url}}" />
+             <p class="duration">{{video.contentDetails.duration | duration}}</p>
+            </div>
+            <div class="col col-50" style="padding-left:15px;"> 
+            <h5 ng-bind-html="video.snippet.localized.title | limitTo:40" style="padding-top:15px;"></h5>
+            <p>{{video.statistics.viewCount | number}} View</p>
+            </div>
+            </div>
+          </a>
+          </div>
+
+
+        </div>
+
+
+
+        
+    </ion-content>
+</ion-view>
